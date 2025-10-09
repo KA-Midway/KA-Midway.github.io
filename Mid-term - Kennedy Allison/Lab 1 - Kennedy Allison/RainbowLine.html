@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Rainbow Line: Expanded</title>
+	<style>
+	
+		
+	.line-container{
+		display: flex;
+		justify-content: center;
+		margin: 50px 0;
+	}
+	
+	.rainbow-line{
+		width: 80%;
+		height: 100px;
+		position: relative;
+		overflow: hidden;
+		
+		background: linear-gradient(
+			90deg,
+			#ff0000, #ff7f00, #ffff00, 
+            #7fff00, #00ff00, #00ff7f, 
+            #00ffff, #007fff, #0000ff, 
+            #7f00ff, #ff00ff, #ff007f, #ff0000
+		);
+		
+			background-size: 200% 100%;
+			animation: rainbowSlide 6s linear infinite;
+		}
+		
+		@keyframes rainbowSlide{
+			0% {backgroun-position: 0% 0;}
+			100% {background-position: 200% 0;}
+			
+		}
+		
+	.protan-line{
+		width: 80%;
+		height: 100px;
+		position: relative;
+		overflow: hidden;
+		
+		background: linear-gradient(
+			90deg,
+			#c1c618, #cfd449, #fbff89, 
+            #c1c587, #adb187, #aeb0a9, 
+            #b3adfe, #644fe6, #3400df, 
+            #6c5ae0, #c6c3e1, #c2c672, #c1c618
+		);
+		
+			background-size: 200% 100%;
+			animation: rainbowSlide 6s linear infinite;
+			
+		}
+		
+	.deuter-line{
+		width: 80%;
+		height: 100px;
+		position: relative;
+		overflow: hidden;
+		
+		background: linear-gradient(
+			90deg,
+			#cbdc1b, #d7e54f, #fbff97, 
+            #bab395, #a19494, #a393b2, 
+            #a88ffe, #5e3ee0, #3200d7, 
+            #7067d8, #cfd9d9, #ccdb6f, #cbdc1b
+		);
+		
+			background-size: 200% 100%;
+			animation: rainbowSlide 6s linear infinite;
+			
+		}
+		
+	.trita-line{
+		width: 80%;
+		height: 100px;
+		position: relative;
+		overflow: hidden;
+		
+		background: linear-gradient(
+			90deg,
+			#ed0019, #ef545e, #f8adb7, 
+            #8eaeb6, #57aeb5, #5dc3c7, 
+            #6efffe, #51d4cd, #45c6bd, 
+            #86c6be, #f4c5bf, #ee6062, #ed0019
+            
+		);
+		
+			background-size: 200% 100%;
+			animation: rainbowSlide 6s linear infinite;
+			
+		}
+		
+	.achroma-line{
+		width: 80%;
+		height: 100px;
+		position: relative;
+		overflow: hidden;
+		
+		background: linear-gradient(
+			90deg,
+			#4c4c4c, #979797, #e2e2e2, 
+            #bcbcbc, #969696, #a4a4a4, 
+            #b3b3b3, #686868, #1d1d1d, 
+            #434343, #696969, #5b5b5b, #4c4c4c
+            
+		);
+		
+			background-size: 200% 100%;
+			animation: rainbowSlide 6s linear infinite;
+			
+		}
+		
+	
+		
+		.button{
+			border: none;
+			padding: 16px 32px;
+			text-align: center;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			cursor: pointer;
+
+	    }
+		
+		.button1{
+			background-color: red;
+			color: black;
+			border:2px solid black;
+			border-radius: 12px;
+			position: relative;
+		}
+		
+		.button2{
+			background-color: green;
+			color: black;
+			border:2px solid black;
+			border-radius: 12px;
+			position: relative;
+		}
+		
+		.button3{
+			background-color: pink;
+			color: black;
+			border:2px solid black;
+			border-radius: 12px;
+			position: relative;
+		}
+		
+		.button4{
+			background-color: grey;
+			color: black;
+			border:2px solid black;
+			border-radius: 12px;
+			position: relative;
+		}
+		
+		.button5{
+			background-color: white;
+			color: black;
+			border:2px solid black;
+			border-radius: 12px;
+			position: right;
+		}
+		
+	
+	
+	
+	
+
+	</style>
+
+</head>
+<body>
+
+<div class ="line-container">
+
+	<div class = "rainbow-line">
+	
+	</div>
+	
+	
+	
+
+</div>
+
+<button class="button button1" onclick ="toggleProtanopia()" >Toggle: Protanopia</button>
+<button class="button button2" onclick ="toggleDeuteranopia()" >Toggle: Deuteranopia</button>
+<button class="button button3" onclick ="toggleTritanopia()" >Toggle: Tritanopia</button>
+<button class="button button4" onclick ="toggleAchromatopsia()" >Toggle: Achromatopsia</button>
+<button class="button button5" onclick ="alert('-Protanopia is the absence of red cones, causing them to be unable to see red or red-mixture colors!   -Deuteranopia is the absence of green cones, causing them to be unable to see green or green-mixture colors! -Tritanopia is the absence of blue cones, which makes them unable to see blue or blue-mixture colors!   -Achromatopsia is the absence of all color cones, which leads to them seeing in greyscale!')" >What are the differences between these types of color-blindness?</button>
+<button class="button button5" onclick ="alert('press the button you have choosen once to acctivate it, press it again to turn off the effect!')" >Help Button</button>
+<script>
+	function toggleProtanopia(){
+		const line = document.querySelector('.rainbow-line');
+		line.classList.toggle('protan-line');
+	}
+	
+	function toggleDeuteranopia(){
+		const line = document.querySelector('.rainbow-line');
+		line.classList.toggle('deuter-line');
+	}
+	
+	function toggleTritanopia(){
+		const line = document.querySelector('.rainbow-line');
+		line.classList.toggle('trita-line');
+	}
+	
+	function toggleAchromatopsia(){
+		const line = document.querySelector('.rainbow-line');
+		line.classList.toggle('achroma-line');
+	}
+</script>	
+</body>
+
+</html>

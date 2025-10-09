@@ -1,0 +1,115 @@
+body {
+  background-color: #645CAA;
+  margin: 0px;
+}
+
+.header {
+  background-color: #EBC7E8; 
+  text-align: center;
+}
+
+.first-row {
+  margin-top: 42px;
+  text-align: center;
+  margin-bottom: 21px;
+}
+
+.instructions-title {
+  display: inline;
+  font-family: "Shadows Into Light Two", cursive;
+  font-size: 22px;
+  color: #EBC7E8;
+}
+
+.second-row {
+  margin: 0 auto;
+  width: 400px;
+}
+
+.instructions-number {
+  padding-right: 25px;
+  font-family: "Shadows Into Light Two", cursive;
+  font-size: 36px;
+  color: #EBC7E8;
+}
+
+.instructions-text {
+  padding: 10px;
+  font-family: "Shadows Into Light Two", cursive;
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.door-row {
+  text-align: center;
+}
+
+.door-frame {
+  cursor: pointer;
+  padding: 10px;
+}
+
+.door-frame:hover{
+	animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    box-shadow:   0 0 3px #fff, 0 0 6px #fff, 0 0 9px #e67090,  0 0 12px #e67090, 0 0 15px #e67090
+  }
+  to {
+    box-shadow: 0 0 9px #fff,  0 0 12px #ff99b3, 0 0 15px #ff99b3, 0 0 18px #ff99b3, 0 0 21px #ff99b3;
+  }
+}
+
+
+.start-row {
+  margin: auto;
+  width: 120px;
+  height: 55px;
+  background-color: #A084CA;
+  padding-top: 18px;
+  font-family: "Shadows Into Light Two", cursive;
+  font-size: 20px;
+  text-align: center;
+  color: #010165;
+  margin-bottom: 9px;
+  cursor: pointer;
+}
+
+.score-row {
+  text-align: center;
+  width: 100%;
+}
+
+.score-text {
+  margin-right: 17px;
+  padding: 5px;
+  display: inline;
+  font-family: "Shadows Into Light Two", cursive;
+  font-size: 16px;
+  letter-spacing: 1.1px;
+  color: #ffffff;
+}
+
+.score-box {
+  margin-top: 9px;
+  display: inline-block;
+  padding: 8px;
+  margin: 18px;
+  margin-right: 29px;
+  width: 59px;
+  background-color: #BFACE0;
+  font-family: "Shadows Into Light Two", cursive;
+  font-size: 45px;
+}
+
+.shadows-into-light-two-regular {
+  font-family: "Shadows Into Light Two", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+
