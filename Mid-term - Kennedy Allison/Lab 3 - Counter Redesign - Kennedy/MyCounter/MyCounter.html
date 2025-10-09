@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="./CSS/styles.css">
+
+<title>Kennedy's Number Counter</title>
+</head>
+
+<body>
+<div class="wrap">
+
+<section class="card">
+<h1>COUNTER</h1>
+<div id="count" class="value">0</div>
+
+<div">
+        <button id="desc">LOWER COUNT BY 1</button>
+		<button id="incr">RAISE COUNT BY 1</button>
+		<button id="lower">LOWER COUNT BY 0.1</button>
+		<button id="raise">RAISE COUNT BY 0.1</button>
+        <button id="reset">RESET</button>
+</div>
+
+</section>
+
+</div>
+
+<script>
+  var valueCount = document.getElementById("count");
+  var descBtn  = document.getElementById("desc");
+  var lowerBtn = document.getElementById("lower");
+  var incrBtn  = document.getElementById("incr");
+  var raiseBtn = document.getElementById("raise");
+  var resetBtn= document.getElementById("reset");
+  
+  var count = Number(localStorage.getItem("counter_value") || 0);
+
+  
+  function render(){
+    valueCount.textContent = count.toFixed(1); 
+    localStorage.setItem("counter_value", String(count));
+	
+	if(count>99){
+		incrBtn.disabled=true;
+	} else{
+		incrBtn.disabled=false;
+	}
+	
+	if(count<-99){
+		descBtn.disabled=true;
+	} else{
+		descBtn.disabled=false;
+	}
+	
+  }
+  
+  function increaseCount(){
+		count=count+1;
+		render();
+		beep();
+  }
+
+incrBtn.addEventListener("click", increaseCount);
+
+function raiseCount(){
+	count += 0.1;
+	render();
+	newBeep();
+}
+
+raiseBtn.addEventListener("click", raiseCount);
+
+function decreaseCount(){
+	count=count-1;
+	render();
+	playDing();
+}
+
+descBtn.addEventListener("click", decreaseCount);
+
+function lowerCount(){
+	count -= 0.1;
+	render();
+	playnewDing();
+}
+
+lowerBtn.addEventListener("click", lowerCount);
+
+function resetCount(){
+	count=0;
+	render();
+	playBuzz();
+}
+
+resetBtn.addEventListener("click", resetCount);
+ 
+  
+  function beep() {
+      let ctx = new (window.AudioContext || window.webkitAudioContext)();
+      let oscillator = ctx.createOscillator();
+      oscillator.type = "square";   // square wave sounds more "beep-like"
+      oscillator.frequency.value = 440; // 440 Hz = A4 note
+      oscillator.connect(ctx.destination);
+      oscillator.start();
+      oscillator.stop(ctx.currentTime + 0.2); // play for 0.2 sec
+  }
+  function newBeep() {
+      let ctx = new (window.AudioContext || window.webkitAudioContext)();
+      let oscillator = ctx.createOscillator();
+      oscillator.type = "triangle";   // square wave sounds more "beep-like"
+      oscillator.frequency.value = 660; // 440 Hz = A4 note
+      oscillator.connect(ctx.destination);
+      oscillator.start();
+      oscillator.stop(ctx.currentTime + 0.2); // play for 0.2 sec
+  }
+	
+	
+  function playDing() {
+      let ctx = new (window.AudioContext || window.webkitAudioContext)();
+      let oscillator = ctx.createOscillator();
+      let gain = ctx.createGain();
+
+      oscillator.type = "sine";          // smooth sine wave
+      oscillator.frequency.value = 880;  // pitch of the "ding"
+
+      oscillator.connect(gain);
+      gain.connect(ctx.destination);
+
+      // fade out smoothly
+      gain.gain.setValueAtTime(1, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1);
+
+      oscillator.start();
+      oscillator.stop(ctx.currentTime + 1); // 1 second long
+  }
+   function playnewDing() {
+      let ctx = new (window.AudioContext || window.webkitAudioContext)();
+      let oscillator = ctx.createOscillator();
+      let gain = ctx.createGain();
+
+      oscillator.type = "sine";          // smooth sine wave
+      oscillator.frequency.value = 1000;  // pitch of the "ding"
+
+      oscillator.connect(gain);
+      gain.connect(ctx.destination);
+
+      // fade out smoothly
+      gain.gain.setValueAtTime(1, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1);
+
+      oscillator.start();
+      oscillator.stop(ctx.currentTime + 1); // 1 second long
+  }
+  
+  function playBuzz(){
+	let ctx = new (window.AudioContext || window.webkitAudioContext)();
+	let oscillator = ctx.createOscillator();
+	let gain = ctx.createGain();
+	
+	oscillator.type = "sawtooth";
+	oscillator.frequency.value = 440;
+	
+	oscillator.connect(gain);
+	gain.connect(ctx.destination);
+	
+	gain.gain.setValueAtTime(1, ctx.currentTime);
+	gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1);
+	
+	oscillator.start();
+	oscillator.stop(ctx.currentTime + 1);
+  }
+</script>
+</body>
+
+</html>
